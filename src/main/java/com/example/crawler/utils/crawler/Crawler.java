@@ -10,7 +10,7 @@ public class Crawler {
     public static String getDataFromUrl(String url) {
         Document document;
         try {
-            document = Jsoup.connect("https://movie.daum.net/main").get();
+            document = Jsoup.connect(url).get();
             return document.html();
         } catch (Exception e) {
             e.getMessage();

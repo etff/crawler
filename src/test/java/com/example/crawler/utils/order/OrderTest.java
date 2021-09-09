@@ -9,6 +9,9 @@ class OrderTest {
     @Test
     void order() {
         String input = "z0Aaa17bBZA";
-        assertThat(Order.compare(input)).isEqualTo("A0A1a7aBbZz");
+
+        String actual = Order.compare(input);
+
+        assertThat(actual).isEqualTo("A0A1a7aBbZz");
     }
 }
