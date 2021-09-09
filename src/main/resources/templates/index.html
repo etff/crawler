@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragment/header"></head>
+<body>
+<div class="container mt-5">
+    <h1>[입력]</h1>
+    <div id="resultMsg" class="col-xl-9 mx-auto" style="height: 40px; color: red"></div>
+
+    <div class="mb-3 row">
+        <div class="col-7">
+            <form name="user-form" id="user-form">
+                <input hidden="hidden"/>
+                <div class="form-group row">
+                    <label for="url" class="col-sm-3 col-form-label">URL</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" name="url" id="url">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="type" class="col-sm-3 col-form-label">TYPE</label>
+                    <div class="col-sm-9">
+                        <select class="form-control" name="type" id="type">
+                            <option value="HTML">HTML 태그 제외</option>
+                            <option value="TEXT">TEXT 전체</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="unit" class="col-sm-3 col-form-label">출력 단위 묶음</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" name="unit" id="unit" value="0" min="0">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-8"></div>
+                    <div class="col-sm-4 align-self-end">
+                        <button type="button" id="send" class="btn btn-block btn-lg btn-primary">제출</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <h1>[출력]</h1>
+    <div class="mb-3 row">
+        <div class="col-7">
+            <ul class="list-group">
+                <li class="list-group-item ">
+                    <h3>몫</h3>
+                    <p>abc</p>
+                </li>
+                <li class="list-group-item ">
+                    <h3>나머지</h3>
+                    <p>abc</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div th:replace="fragment/footer"/>
+</div>
+</body>
+</html>
