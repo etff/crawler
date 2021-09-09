@@ -25,10 +25,11 @@ var main = {
             data: JSON.stringify(param)
         }).done(function (data) {
             var result = data;
-
+            console.log(result);
 
         }).fail(function (error) {
             alert("오류가 발생했습니다");
+            console.log(error);
         });
     },
     validate: function () {
