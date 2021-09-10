@@ -28,7 +28,7 @@ public class Order {
     private static Queue<Character> getSortNumbers(String input) {
         List<Character> numbers = new ArrayList();
         for (Character c : input.toCharArray()) {
-            if (!Character.isLetter(c)) {
+            if (Character.isDigit(c)) {
                 numbers.add(c);
             }
         }

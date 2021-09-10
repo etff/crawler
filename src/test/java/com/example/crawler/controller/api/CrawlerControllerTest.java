@@ -36,7 +36,7 @@ class CrawlerControllerTest {
     @BeforeEach
     void setUp() {
         request = new CrawlerRequest("http://www.google.com", Type.HTML, 100);
-        response = new CrawlerResponse("a1bc");
+        response = new CrawlerResponse("a,b,c,d", "e");
     }
 
     @Test

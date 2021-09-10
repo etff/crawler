@@ -6,9 +6,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Getter
 public class CrawlerResponse {
-    private String result;
+    private String quotient;
+    private String remains;
 
-    public CrawlerResponse(String result) {
-        this.result = result;
+    public CrawlerResponse(String quotient, String remains) {
+        this.quotient = quotient;
+        this.remains = remains;
     }
 }
