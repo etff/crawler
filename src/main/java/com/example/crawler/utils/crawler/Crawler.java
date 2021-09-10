@@ -11,7 +11,7 @@ public class Crawler {
         Document document;
         try {
             document = Jsoup.connect(url).get();
-            return document.html();
+            return document.html().trim();
         } catch (Exception e) {
             e.getMessage();
         }

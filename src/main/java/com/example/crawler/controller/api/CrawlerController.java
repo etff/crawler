@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/crawler")
@@ -18,7 +20,7 @@ public class CrawlerController {
     private final CrawlerService crawlerService;
 
     @PostMapping
-    public ResponseEntity<CrawlerResponse> getCrawlerData(@RequestBody CrawlerRequest dto) {
+    public ResponseEntity<CrawlerResponse> getCrawlerData(@RequestBody @Valid CrawlerRequest dto) {
         CrawlerResponse data = crawlerService.getData(dto);
         return new ResponseEntity<>(data, HttpStatus.CREATED);
     }

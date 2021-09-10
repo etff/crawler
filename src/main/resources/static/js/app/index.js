@@ -25,11 +25,18 @@ var main = {
             data: JSON.stringify(param)
         }).done(function (data) {
             var result = data;
-            console.log(result);
+            $("#resultMsg").html("");
+            $("#quotient").html(result.quotient);
+            $("#remains").html(result.remains);
 
         }).fail(function (error) {
             alert("오류가 발생했습니다");
-            console.log(error);
+            if (error.status === 400) {
+                $("#resultMsg").html("입력값을 확인해주세요");
+            }
+            if (error.status === 500) {
+                $("#resultMsg").html("요청 처리중 요류가 발생했습니다.");
+            }
         });
     },
     validate: function () {
@@ -49,8 +56,6 @@ var main = {
             alert("0보다 커야합니다.");
             result = false;
         }
-
-
         return result;
     }
 };
