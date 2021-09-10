@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class HtmlParserTest {
+class TextParserTest {
 
     @Test
     void remove_html() {
@@ -17,19 +17,25 @@ class HtmlParserTest {
                 + "<div>hi...</div>"
                 + "</body>"
                 + "</html>";
-        assertThat(HtmlParser.parser(givenInput)).isEqualTo("alerthihi");
+        assertThat(TextParser.parseHTML(givenInput)).isEqualTo("alerthihi");
     }
 
     @Test
-    void remove_korean() {
-        final String givenInput = "가나다라abc";
-        assertThat(HtmlParser.parser(givenInput)).isEqualTo("abc");
+    void remove_html_korean() {
+        final String givenInput = "<html><body>가나다라abc</body></html>";
+        assertThat(TextParser.parseHTML(givenInput)).isEqualTo("abc");
     }
 
     @Test
     void accept_english_and_number() {
         String givenInput = "*가1a";
 
-        assertThat(HtmlParser.parser(givenInput)).isEqualTo("1a");
+        assertThat(TextParser.parseHTML(givenInput)).isEqualTo("1a");
+    }
+
+    @Test
+    void remove_text_korean() {
+        final String givenInput = "가나다라abc";
+        assertThat(TextParser.parseText(givenInput)).isEqualTo("abc");
     }
 }
