@@ -4,6 +4,9 @@ import com.example.crawler.dto.CrawlerResponse;
 
 import java.util.Objects;
 
+/**
+ * 데이터를 요청한 출력 조건으로 포매팅합니다.
+ */
 public class Formatter {
     private static final String BLANK_NOT_ALLOWED = "빈값이 들어올 수 없습니다.";
     private static final String MINIMUM_UNIT_VALUE = "0보다 작을 수 없습니다.";
@@ -11,6 +14,13 @@ public class Formatter {
     private Formatter() {
     }
 
+    /**
+     * 포맷을 변경합니다. ex) abcde => 몫: ab,cd 나머지: e 로 리턴합니다.
+     *
+     * @param text 입력된 텍스트
+     * @param unit 출력 묶음 단위
+     * @return 포맷이 변경된 결과값
+     */
     public static CrawlerResponse changeFormat(String text, int unit) {
         validateParameters(text, unit);
         if (text.length() < unit) {
